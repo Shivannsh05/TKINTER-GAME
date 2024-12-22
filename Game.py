@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import messagebox
+import pygame
 
 story_data = {
     "display":{
@@ -39,6 +39,9 @@ def update_story(scene):
     story = story_data[scene]
     story_text.set(story["text"])
 
+    if scene == "house":
+        play_audio()
+
     for widget in choice_button_frame.winfo_children():
         widget.destroy()
 
@@ -54,7 +57,15 @@ def update_story(scene):
             font=("Arial", 12, "bold"), 
             relief="raised"   
         )
-        choice_button.pack(pady=5)  # Add some spacing between buttons
+        choice_button.pack(pady=5) 
+
+#background audio
+def play_audio():
+    pygame.mixer.init()
+    pygame.mixer.music.load("risk.mp3") 
+    pygame.mixer.music.set_volume(0.5)  
+    pygame.mixer.music.play(-1, 0.0) 
+
 
 conner = tk.Tk()
 conner.title("DETROIT: JUST A MACHINE?")
