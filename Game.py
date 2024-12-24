@@ -10,7 +10,7 @@ story_data = {
         }
     },
     "start": {
-        "text": "YOUR ARE ST3012, NICKNAMED AS CONNER, ONE OF THE MOST ADVANCE DETROIT MADE CYBERLIFE. YOUR ARE PROGRAMMED TO SOLVE COMPLEX CASE.\nYou are assigned a case of detroit who assaulted the the owner and ran away with his daughter.\n   REMEMBER:-THE CHOICES YOU MAKE WILL DECIDE THE FUTURE",
+        "text": "YOUR ARE ST3012, NICKNAMED AS CONNER, ONE OF THE MOST ADVANCE DETROIT MADE BY CYBERLIFE. YOUR ARE PROGRAMMED TO SOLVE COMPLEX CASE.\nYOU ARE ASSIGNED A CASE OF DETROIT WHO ASSAULTED THE OWNER AND RAN AWAY WITH HIS DAUGHTER..\n   REMEMBER:-THE CHOICES YOU MAKE WILL DECIDE THE FUTURE",
         "CHOICE": {"PLAY": "house"}
     },
     "house": {
@@ -41,7 +41,7 @@ def update_story(scene):
     story = story_data[scene]
     story_text.set(story["text"])
 
-    # If the scene is 'start', start the background audio
+    # If the scene is 'house', start the background audio
     if scene == "house":
         play_background_audio()
 
@@ -62,6 +62,7 @@ def update_story(scene):
         )
         choice_button.pack(pady=5)  # Add some spacing between buttons
 
+#Adding BGM 
 def play_background_audio():
     pygame.mixer.init()
     pygame.mixer.music.load("risk.mp3")  
